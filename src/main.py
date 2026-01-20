@@ -2,10 +2,22 @@ from fastapi import FastAPI, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 from typing import List
 
-from . import models, schemas, database
+import models, schemas, database
+import time
+from sqlalchemy.exc import OperationalError
 
-# Create the database tables
-models.Base.metadata.create_all(bind=database.engine)
+# Create the database tables with retry logic
+max_retries = 5
+for i in range(max_retries):
+    try:
+        models.Base.metadata.create_all(bind=database.engine)
+        break
+    except OperationalError:
+        if i < max_retries - 1:
+            print(f"Database not ready, retrying in 5 seconds... ({i+1}/{max_retries})")
+            time.sleep(5)
+        else:
+            raise
 
 app = FastAPI(title="Secure CRUD App")
 
