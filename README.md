@@ -51,12 +51,10 @@ To enable the pipeline, you must add the following **Secrets** to your GitHub Re
 ## 📸 Screenshots
 
 ### 1. Deployment Success
-<!-- Insert screenshot of the terminal showing the success message from ./deploy.sh -->
-![Deployment Output](<img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/6ea6d5fb-da44-4dfc-927d-a688403bf60a" />)
+![Deployment Output](assets/Deployment-Success.png)
 
 ### 2. API Documentation (Swagger UI)
-<!-- Insert screenshot of http://localhost/docs -->
-![Swagger UI](<img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/38a34310-40a3-4c07-a2fc-11a340f44b10" />)
+![Swagger UI](assets/Swagger-UI.png)
 
 ## 📂 Project Structure
 
