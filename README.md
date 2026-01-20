@@ -30,6 +30,24 @@ This project includes an automated deployment script that checks prerequisites, 
     -   **Interactive Documentation (Swagger UI):** `http://localhost/docs`
     -   **Alternative Docs (ReDoc):** `http://localhost/redoc`
 
+## 🔄 CI/CD Pipeline
+
+This project includes a GitHub Actions workflow that automatically builds and deploys the Docker image to Docker Hub.
+
+### Workflow Steps
+1.  **Trigger:** Pushing to the `main` branch.
+2.  **Build:** Builds the Docker image from the `Dockerfile`.
+3.  **Tag:** Tags the image with `latest` and the commit SHA (e.g., `commit-sha123`).
+4.  **Push:** Pushes both tags to Docker Hub.
+
+### Setup
+To enable the pipeline, you must add the following **Secrets** to your GitHub Repository settings (`Settings` > `Secrets and variables` > `Actions`):
+
+| Secret Name | Description |
+| :--- | :--- |
+| `DOCKERHUB_USERNAME` | Your Docker Hub username. |
+| `DOCKERHUB_TOKEN` | Your Docker Hub Access Token (preferred over password). |
+
 ## 📸 Screenshots
 
 ### 1. Deployment Success
